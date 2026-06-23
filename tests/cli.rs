@@ -1,7 +1,7 @@
 use assert_cmd::Command;
 
 #[test]
-fn test_cli_requires_input_file() {
+fn cli_requires_input_file() {
     let mut cmd = Command::cargo_bin("mass-replace").unwrap();
     cmd.assert().failure().stderr(predicates::str::contains(
         "required arguments were not provided",
@@ -9,7 +9,7 @@ fn test_cli_requires_input_file() {
 }
 
 #[test]
-fn test_cli_help_output() {
+fn cli_help_output() {
     let mut cmd = Command::cargo_bin("mass-replace").unwrap();
     cmd.arg("--help")
         .assert()
